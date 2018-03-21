@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单页面</title>
+	<link rel="stylesheet" type="text/css" href="../css/dingdan.css">
+	<link href="../css/dingdan1.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script src="../js/dingdan1.js"></script>
+	<script src="../js/dingdan.js"></script>
+	<script>
+	$(document).ready(function () {
+
+		//jquery特效制作复选框全选反选取消(无插件)
+		// 全选       
+		console.log($); 
+		$(".allselect").click(function () {
+			$(".gwc_tb2 input[name=newslist]").each(function () {
+				$(this).attr("checked", true);
+				// $(this).next().css({ "background-color": "#3366cc", "color": "#ffffff" });
+			});
+			GetCount();
+		});
+
+		//反选
+		$("#invert").click(function () {
+			$(".gwc_tb2 input[name=newslist]").each(function () {
+				if ($(this).attr("checked")) {
+					$(this).attr("checked", false);
+					//$(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
+				} else {
+					$(this).attr("checked", true);
+					//$(this).next().css({ "background-color": "#3366cc", "color": "#000000" });
+				} 
+			});
+			GetCount();
+		});
+
+		//取消
+		$("#cancel").click(function () {
+			$(".gwc_tb2 input[name=newslist]").each(function () {
+				$(this).attr("checked", false);
+				// $(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
+			});
+			GetCount();
+		});
+
+		// 所有复选(:checkbox)框点击事件
+		$(".gwc_tb2 input[name=newslist]").click(function () {
+			if ($(this).attr("checked")) {
+				//$(this).next().css({ "background-color": "#3366cc", "color": "#ffffff" });
+			} else {
+				// $(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
+			}
+		});
+
+		// 输出
+		$(".gwc_tb2 input[name=newslist]").click(function () {
+			// $("#total2").html() = GetCount($(this));
+			GetCount();
+			//alert(conts);
+		});
+	});
+	//******************
+	function GetCount() {
+		var conts = 0;
+		var aa = 0;
+		$(".gwc_tb2 input[name=newslist]").each(function () {
+			if ($(this).attr("checked")) {
+				for (var i = 0; i < $(this).length; i++) {
+					conts += parseInt($(this).val());
+					aa += 1;
+				}
+			}
+		});
+		$("#shuliang").text(aa);
+		$("#zong1").html((conts).toFixed(2));
+		$("#jz1").css("display", "none");
+		$("#jz2").css("display", "block");
+	}
+	</script>
+</head>
+<body>
+<!-- header -->
+		<div class="header">
+			<p>冷链配送 顺丰到家 送至：</p>
+			<select>
+				<option>西安</option>
+				<option>渭南</option>
+				<option>宝鸡</option>
+				<option>铜川</option>
+				<option>商洛</option>
+			</select>
+			<div class="header1">
+				<p>嘿,欢迎来顺丰优选！ 请登录 免费注册</p>
+				<p>我的订单</p>
+				<p>我的优选<img src="../img/2.jpg"></p>
+				<p>移动客户端</p>	
+				<p>帮助中心<img src="../img/2.jpg"></p>
+				<p>网站导航<img src="../img/2.jpg"></p>
+			</div>	
+			<div class="img1">
+				<img src="../img/4.jpg">	
+			</div>
+		</div>
+<!-- nav	 -->	
+		<div class="nav">
+			<img src="../img/5.jpg">
+			<div class="nava">
+				<form>  
+					<input type="text"  value="车厘子" class="inputa" />
+					<input type="submit" value="搜索" class="inputb" />
+					
+				</form>
+				<a href="http://www.sfbest.com/html/activity/1520817486.html?sfsource=bdpz&wt_mc=PC_sousuo_baidu_pz_bdpz_biaoti&utm_source=baidupz&utm_medium=cpc&utm_campaign=pinzhuan&union_source=baidupz" class="navc">羊排 盐熏鸡 燕窝 橙子 五粮液 燕窝 洋酒 白瞎 鲟鱼 牛奶</a>
+			</div>
+			<a href="http://www.sfbest.com/html/activity/1520817486.html?sfsource=bdpz&wt_mc=PC_sousuo_baidu_pz_bdpz_biaoti&utm_source=baidupz&utm_medium=cpc&utm_campaign=pinzhuan&union_source=baidupz">
+				<img src="../img/6.jpg" class="navb">
+			</a>	
+		</div>
+<!-- banner -->
+		<div class="banner">
+			<div class="banner-left">
+				<h2>精选商品分类</h2>
+			</div>
+			<div class="banner-right">
+				<div>
+					<span class="span">首页</span>
+					<span>优选生鲜</span>
+					<span>优选厨房</span>
+					<span>优选国际</span>
+					<span>企业专区</span>
+					<span>优选会员</span>
+				</div>
+			</div>
+		</div>
+
+
+<!-- center -->
+		<div class="center">
+			<div class="center-top">
+				<p>我的优选/我的订单</p>
+			</div>
+			<div class="box">
+				<div class="box-left">
+					<h3>交易管理</h3>
+					<ul>
+						<li><a href="#">我的订单</a></li>
+						<li><a href="#">商品评价</a></li>
+						<li><a href="#">我的收藏</a></li>
+						<li><a href="#">我的优选卡</a></li>
+						<li><a href="#">我的积分</a></li>
+						<li><a href="#">我的优惠券</a></li>
+						<li><a href="#">退款查询</a></li>
+						<li><a href="#">售后服务</a></li>
+						<li><a href="#">补开发票</a></li>
+					</ul>
+					<h3>会员中心</h3>
+					<ul class="box-ul">
+						<li><a href="#">账户信息</a></li>
+						<li><a href="#">收货地址</a></li>
+						<li><a href="#">账户安全</a></li>
+						<li><a href="#">我的消息</a></li>
+						<li><a href="#">文章评论</a></li>
+						<li><a href="#">推进有奖</a></li>
+					</ul>
+				</div>
+				<div class="box-right">
+					<div class="anquan">
+						<ul>
+							<li><h3>您的账户安全级别：</h3></li>
+							<li><img src="../img/149.jpg" alt=""></li>
+							<li><p>设置支付密码，确保账户资金安全。</p></li>
+							<li><a href="#">马上行动</a></li>
+						</ul>
+					</div>
+					<div class="shiwu">
+						<div class="shiwu-top">
+							<ul>
+								<li><a href="#">实物商品</a></li>
+								<li><a href="#">周配期</a></li>
+								<li><a href="#">电子优选卡</a></li>
+							</ul>
+							<a href="#" class="a">订单回收站</a>
+						</div>
+						<div class="liuyue">
+							<form>
+								<select class="select">
+									<option>最近6个月</option>
+									<option>最近3个月</option>
+									<option>最近一天</option>
+								</select>
+							</form>
+						</div>
+						<div class="quanbu">
+							<ul>
+								<li><a href="#">全部</a></li>
+								<li><a href="#">待付款</a></li>
+								<li><a href="#">待收货</a></li>
+								<li><a href="#">待发货</a></li>
+								<li><a href="#">待评价</a></li>
+							</ul>
+							<input type="text" value="订单号/商品名称" class="inputhk">
+							<img src="../img/150.jpg">
+							<div class="gwc" style=" margin:auto;">
+							  <table cellpadding="0" cellspacing="0" class="gwc_tb1">
+							    <tr>
+							      <td class="tb1_td1"><input id="Checkbox1" type="checkbox"  class="allselect"/></td>
+							      <td class="tb1_td1">全选</td>
+							      <td class="tb1_td3">商品</td>
+							      <td class="tb1_td4">商品信息</td>
+							      <td class="tb1_td5">数量</td>
+							      <td class="tb1_td6">单价</td>
+							      <td class="tb1_td7">操作</td>
+							    </tr>
+							  </table>
+							  <script>
+								$(function () {
+									var t = $("#text_box1");
+									$("#add1").click(function () {
+										t.val(parseInt(t.val()) + 1)
+										setTotal(); GetCount();
+									})
+									$("#min1").click(function () {
+										t.val(parseInt(t.val()) - 1)
+										setTotal(); GetCount();
+									})
+									function setTotal() {
+
+										$("#total1").html((parseInt(t.val()) * 9).toFixed(2));
+										$("#newslist-1").val(parseInt(t.val()) * 9);
+									}
+									setTotal();
+								})
+								</script>
+							  <table cellpadding="0" cellspacing="0" class="gwc_tb2">
+							    <tr>
+							      <td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-1" /></td>
+							      <td class="tb2_td2"><a href="#"><img src="../img/151.jpg"/></a></td>
+							      <td class="tb2_td3"><a href="#">澳洲大龙虾</a></td>
+							      <td class="tb1_td4">一件</td>
+							      <td class="tb1_td5"><input id="min1" name=""  style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="-" />
+							        <input id="text_box1" name="" type="text" value="1" style=" width:30px; text-align:center; border:1px solid #ccc;" />
+							        <input id="add1" name="" style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="+" />
+							      </td>
+							      <td class="tb1_td6"><label id="total1" class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></td>
+							      <td class="tb1_td7"><a href="#">删除</a></td>
+							    </tr>
+							  </table>
+							  <script>
+								$(function () {
+									var t = $("#text_box2");
+									$("#add2").click(function () {
+										t.val(parseInt(t.val()) + 1)
+										setTotal(); GetCount();
+									})
+									$("#min2").click(function () {
+										t.val(parseInt(t.val()) - 1)
+										setTotal(); GetCount();
+									})
+									function setTotal() {
+
+										$("#total2").html((parseInt(t.val()) * 8).toFixed(2));
+										$("#newslist-2").val(parseInt(t.val()) * 8);
+									}
+									setTotal();
+								})
+								</script>
+							  <table cellpadding="0" cellspacing="0" class="gwc_tb2">
+							    <tr>
+							      <td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-2" /></td>
+							      <td class="tb2_td2"><a href="#"><img src="../img/152.jpg"/></a></td>
+							      <td class="tb2_td3"><a href="#">虾仁肉</a></td>
+							      <td class="tb1_td4">一件</td>
+							      <td class="tb1_td5"><input id="min2" name=""  style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="-" />
+							        <input id="text_box2" name="" type="text" value="1" style=" width:30px; text-align:center; border:1px solid #ccc;" />
+							        <input id="add2" name="" style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="+" />
+							      </td>
+							      <td class="tb1_td6"><label id="total2" class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></td>
+							      <td class="tb1_td7"><a href="#">删除</a></td>
+							    </tr>
+							  </table>
+							  <script>
+								$(function () {
+									$(".quanxun").click(function () {
+										setTotal();
+										//alert($(lens[0]).text());
+									});
+									function setTotal() {
+										var len = $(".tot");
+										var num = 0;
+										for (var i = 0; i < len.length; i++) {
+											num = parseInt(num) + parseInt($(len[i]).text());
+
+										}
+										//alert(len.length);
+										$("#zong1").text(parseInt(num).toFixed(2));
+										$("#shuliang").text(len.length);
+									}
+									//setTotal();
+								})
+								</script>
+							  <table cellpadding="0" cellspacing="0" class="gwc_tb3">
+							    <tr>
+							      <td class="tb1_td1"><input id="checkAll" class="allselect" type="checkbox" /></td>
+							      <td class="tb1_td1">全选</td>
+							      <td class="tb3_td1"><input id="invert" type="checkbox" />
+							        反选
+							        <input id="cancel" type="checkbox" />
+							        取消 </td>
+							      <td class="tb3_td2">已选商品
+							        <label id="shuliang" style="color:#ff5500;font-size:14px; font-weight:bold;">0</label>
+							        件</td>
+							      <td class="tb3_td3">合计(不含运费):<span>￥</span><span style=" color:#ff5500;">
+							        <label id="zong1" style="color:#ff5500;font-size:14px; font-weight:bold;"></label>
+							        </span></td>
+							      <td class="tb3_td4"><span id="jz1">结算</span><a href="#" style=" display:none;"  class="jz2" id="jz2">结算</a></td>
+							    </tr>
+							  </table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+<!-- below	-->
+		<div class="below">
+			<div class="below-ul">
+				<ul>
+					<li class="below-li">为你推荐</li>
+					<li>最近浏览</li>
+				</ul>
+			</div>
+			<div class="carousel" id="carousel1">
+				<ul class="carousel-list">
+					<li><img src="../img/160.jpg"></li>
+					<li><img src="../img/161.jpg"></li>
+					<li><img src="../img/162.jpg"></li>
+					<li><img src="../img/163.jpg"></li>
+					<li><img src="../img/164.jpg"></li>
+					<li><img src="../img/165.jpg"></li>
+					<li><img src="../img/166.jpg"></li>
+					<li><img src="../img/167.jpg"></li>
+				</ul>
+				<div class="direction-btn">
+					<a href="javascript:;" class="prev"><</a>
+					<a href="javascript:;" class="next">></a>
+				</div>
+				<div class="dots">
+					<a href="javascript:;" class="active"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+				</div>
+			</div>	
+		</div>
+<!-- sfyx -->
+		<div class="sfyx">
+			<div class="sfyx-left">
+				<img src="../img/70.jpg">
+			</div>
+			<div class="sfyx-center">
+				<a href="#">
+					<ul>
+						<li class="sfyx-center-font">购物指南</li>
+						<li>积分制度</li>
+						<li>会员介绍</li>
+						<li>购物流程</li>
+						<li>常见问题</li>
+					</ul>
+					<ul>
+						<li class="sfyx-center-font">配送服务</li>
+						<li>配送政策</li>
+						<li>开箱验货</li>
+						<li>配送运费</li>
+						<li>配送货物</li>
+					</ul>
+					<ul>
+						<li class="sfyx-center-font">支付方式</li>
+						<li>货到付款</li>
+						<li>在线支付</li>
+						<li>优选卡</li>
+						<li>发票制度</li>
+					</ul>
+					<ul>
+						<li class="sfyx-center-font">售后服务</li>
+						<li>退款说明</li>
+						<li>隐私条款</li>
+						<li>脱货流程</li>
+						<li>爱你我你</li>
+					</ul>
+					<ul>
+						<li class="sfyx-center-font">商家中心</li>
+						<li>商家规则</li>
+						<li>食品安全</li>
+						<li>创业招募</li>
+						<li></li>
+					</ul>
+				</a>
+			</div>
+			<div class="sfyx-right">
+				<img src="../img/71.jpg">
+			</div>
+		</div>
+		<div>
+			<img class="houkun" src="../img/72.jpg">
+		</div>		
+			<script src="../js/common.js"></script>
+			<script src="../js/dingdan2.js"></script>
+			<script>
+				new Carousel({
+					el: document.getElementById('carousel1'),
+					timeout: 5000
+				});
+				new Carousel({
+					el: document.getElementById('carousel2')
+				});
+			</script>
+</body>
+</html>
